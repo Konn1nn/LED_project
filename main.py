@@ -2,6 +2,15 @@ import time
 import explorerhat
 
 
+def blink182():
+    for i in range(10):
+        explorerhat.output.one.on()
+        time.sleep(0.2)
+        explorerhat.output.one.off()
+        time.sleep(0.2)
+        print(i)
+
+
 explorerhat.light.on()
 while True:
     if explorerhat.touch.one.is_pressed():
@@ -21,6 +30,8 @@ while True:
     if explorerhat.touch.four.is_pressed():
         explorerhat.motor.one.forward()
         explorerhat.motor.two.backwards()
-        time.sleep(3)
+        blink182()
+        #time.sleep(3)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
+
