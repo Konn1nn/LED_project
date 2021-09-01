@@ -7,6 +7,6 @@ while True:
         explorerhat.output.off()
 
     if explorerhat.touch.three.is_held():
-        explorerhat.blue.off()
+        explorerhat.light.blue.off()
     else:
-        explorerhat.blue.on()
+        explorerhat.light.blue.on()
