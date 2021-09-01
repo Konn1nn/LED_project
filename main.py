@@ -5,10 +5,7 @@ import explorerhat
 explorerhat.light.on()
 while True:
     if explorerhat.touch.one.is_pressed():
-        for i in range(3):
-            explorerhat.output.one.on()
-            time.sleep(0.3)
-            explorerhat.output.one.off()
+        explorerhat.output.one.blink(1, 1)
     else:
         explorerhat.output.one.off()
 
