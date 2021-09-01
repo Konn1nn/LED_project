@@ -8,5 +8,5 @@ while True:
 
     if explorerhat.touch.three.is_pressed():
         explorerhat.light.blue.off()
-    else:
-        print("you suck")
+    if explorerhat.touch.two.is_pressed():
+        explorerhat.light.blue.on()
