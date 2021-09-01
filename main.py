@@ -1,7 +1,7 @@
 import explorerhat
 explorerhat.light.on()
 while True:
-    if explorerhat.touch.one.is_held():
+    if explorerhat.touch.one.is_pressed():
         explorerhat.output.on()
     else:
         explorerhat.output.off()
