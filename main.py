@@ -1,2 +1,3 @@
 import explorerhat
-explorerhat.light.on()
+while True:
+    explorerhat.light.on()
