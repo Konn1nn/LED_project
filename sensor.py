@@ -36,5 +36,5 @@ while True:
     lux = sensor.lux
     print("Temperature: {0}K Lux: {1}\n".format(temp, lux))
     # Delay for a second and repeat.
-    # time.sleep(1.0)
+    time.sleep(1.0)
 
