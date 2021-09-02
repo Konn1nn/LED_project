@@ -101,7 +101,7 @@ def main():
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
             explorerhat.motor.one.forwards(20)
-            explorerhat.motor.two.forwards(10)
+            #explorerhat.motor.two.forwards(100)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
