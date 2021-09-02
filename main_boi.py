@@ -39,7 +39,7 @@ def on_line(r_set, g_set, b_set):
         return False
 
 def find_line(r_set, g_set, b_set):
-    speed = 50
+    speed = 60
 
 
     for i in range(4):
