@@ -50,10 +50,13 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.03)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
+    time.sleep(1)
     explorerhat.motor.one.backward(speed)
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
+    time.sleep(1)
+
     explorerhat.motor.two.forwards(speed)
     for i in range(30):
         if on_line(r_set, g_set, b_set):
@@ -63,10 +66,13 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.03)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
+    time.sleep(1)
     explorerhat.motor.two.backwards(speed)
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
+    time.sleep(1)
+
     return False
 
 def follow_line(r_set, g_set, b_set):
