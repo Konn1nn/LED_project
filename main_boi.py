@@ -57,7 +57,7 @@ def find_line():
 
 def follow_line(r_set, g_set, b_set):
     keep_running = True
-    r_read, g_read, b_read = 0
+    r_read, g_read, b_read = 0, 0, 0
     while keep_running:
         if on_line():
             explorerhat.motor.one.forwards(50)
@@ -81,6 +81,7 @@ def main():
             blink182()
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
+            print("The set values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
         elif explorerhat.touch.three.is_pressed():
             blink182(5, 1)
             keep_running = follow_line(red, green, blue)
