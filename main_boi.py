@@ -75,7 +75,7 @@ def main():
     keep_running = True
 
 
-    red, green, blue = 0
+    red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
             blink182()
