@@ -23,11 +23,17 @@ def drive(motor1 = 50, motor2 = 50, length = 2):
     explorerhat.motor.two.stop()
 
 def on_line(r_set, g_set, b_set):
+    tolerance = 5
     r_read, g_read, b_read = sensor.color_rgb_bytes
     r_diff = r_set - r_read
     g_diff = g_set - g_set
     b_diff = b_set - b_set
-    if (r_diff < 10 and r_diff > -10 and g_diff < 10 and g_diff > -10 and b_diff < 10 and b_diff > -10):
+    if (r_diff < tolerance and
+            r_diff > -tolerance and
+            g_diff < tolerance and
+            g_diff > -tolerance and
+            b_diff < tolerance and
+            b_diff > -tolerance):
         return True
     else:
         return False
