@@ -100,7 +100,7 @@ def main():
             follow_line(red, green, blue)
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
-            explorerhat.motor.one.forwards(10)
+            explorerhat.motor.one.forwards(-10)
             explorerhat.motor.two.backwards()
             blink182(1, 1)
             explorerhat.motor.one.stop()
