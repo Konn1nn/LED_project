@@ -23,7 +23,7 @@ def drive(motor1 = 50, motor2 = 50, length = 2):
     explorerhat.motor.two.stop()
 
 def on_line(r_set, g_set, b_set):
-    r_read, g_read, b_read = sensor.color_rgb_bytes()
+    r_read, g_read, b_read = sensor.color_rgb_bytes
     r_diff = r_set - r_read
     g_diff = g_set - g_set
     b_diff = b_set - b_set
@@ -80,7 +80,7 @@ def main():
         if explorerhat.touch.one.is_pressed():
             blink182()
         elif explorerhat.touch.two.is_pressed(): # set the color
-            red, green, blue = sensor.color_rgb_bytes()
+            red, green, blue = sensor.color_rgb_bytes
         elif explorerhat.touch.three.is_pressed():
             blink182(5, 1)
             keep_running = follow_line(red, green, blue)
