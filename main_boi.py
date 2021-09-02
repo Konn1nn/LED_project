@@ -28,6 +28,7 @@ def on_line(r_set, g_set, b_set):
     r_diff = r_set - r_read
     g_diff = g_set - g_read
     b_diff = b_set - b_read
+    print("The set values are red: {0} , green {1} , blue: {2}".format(r_read, g_read, b_read))
     if (r_diff < tolerance and
             r_diff > -tolerance and
             g_diff < tolerance and
