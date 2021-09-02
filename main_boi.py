@@ -42,46 +42,46 @@ def find_line(r_set, g_set, b_set):
     speed = 60
 
 
-    for i in range(4):
+    for i in range(8):
         explorerhat.motor.one.forwards(speed)
-        time.sleep(0.2)
+        time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
             return True
-        time.sleep(0.2)
-    for i in range(4):
+        time.sleep(0.1)
+    for i in range(8):
         explorerhat.motor.one.backwards(speed)
-        time.sleep(0.2)
+        time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
             return True
-        time.sleep(0.2)
-    for i in range(4):
+        time.sleep(0.1)
+    for i in range(8):
         explorerhat.motor.two.forwards(speed)
-        time.sleep(0.2)
+        time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
             return True
-        time.sleep(0.2)
-    for i in range(4):
+        time.sleep(0.1)
+    for i in range(8):
         explorerhat.motor.two.backwards(speed)
-        time.sleep(0.2)
+        time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
             return True
-        time.sleep(0.2)
+        time.sleep(0.1)
 
     return False
 
