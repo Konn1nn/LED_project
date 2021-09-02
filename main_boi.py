@@ -17,7 +17,7 @@ def blink182(times = 10, wait_time = 0.5):
 
 def drive(motor1 = 50, motor2 = 50, length = 2):
     explorerhat.motor.one.forwards(motor1)
-    explorerhat.motor.two.backwards(motor2)
+    explorerhat.motor.two.forwards(motor2)
     time.sleep(length)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
@@ -52,7 +52,7 @@ def find_line(r_set, g_set, b_set):
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
-    explorerhat.motor.two.backwards(30)
+    explorerhat.motor.two.forwards(30)
     for i in range(30):
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
@@ -61,7 +61,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.03)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
-    explorerhat.motor.two.forwards(30)
+    explorerhat.motor.two.backwards(30)
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
@@ -73,7 +73,7 @@ def follow_line(r_set, g_set, b_set):
     while keep_running:
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.forwards(50)
-            explorerhat.motor.two.backwards(50)
+            explorerhat.motor.two.forwards(50)
         else:
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
@@ -101,7 +101,7 @@ def main():
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
             explorerhat.motor.one.forwards(100)
-            explorerhat.motor.two.backwards(1)
+            explorerhat.motor.two.forwards(100)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
