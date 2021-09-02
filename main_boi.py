@@ -47,6 +47,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
+        time.sleep(0.1)
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
@@ -57,6 +58,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
+        time.sleep(0.1)
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
@@ -67,6 +69,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
+        time.sleep(0.1)
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
@@ -77,6 +80,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
+        time.sleep(0.1)
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
