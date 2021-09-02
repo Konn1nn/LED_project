@@ -86,7 +86,7 @@ def follow_line(r_set, g_set, b_set):
 def main():
     explorerhat.light.on()
     keep_running = True
-
+    explorerhat.motor.one.invert()
 
     red, green, blue = 0, 0, 0
     while keep_running:
@@ -100,8 +100,8 @@ def main():
             follow_line(red, green, blue)
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
-            explorerhat.motor.one.forwards(100)
-            explorerhat.motor.two.forwards(100)
+            explorerhat.motor.one.forwards(20)
+            explorerhat.motor.two.forwards(10)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
