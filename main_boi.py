@@ -39,7 +39,9 @@ def on_line(r_set, g_set, b_set):
         return False
 
 def find_line(r_set, g_set, b_set):
-    explorerhat.motor.one.forwards(30)
+    speed = 50
+
+    explorerhat.motor.one.forwards(speed)
     for i in range(30):
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
@@ -48,11 +50,11 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.03)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
-    explorerhat.motor.one.backward(30)
+    explorerhat.motor.one.backward(speed)
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
-    explorerhat.motor.two.forwards(30)
+    explorerhat.motor.two.forwards(speed)
     for i in range(30):
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.one.stop()
@@ -61,7 +63,7 @@ def find_line(r_set, g_set, b_set):
         time.sleep(0.03)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
-    explorerhat.motor.two.backwards(30)
+    explorerhat.motor.two.backwards(speed)
     time.sleep(1)
     explorerhat.motor.one.stop()
     explorerhat.motor.two.stop()
@@ -101,7 +103,7 @@ def main():
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
             explorerhat.motor.one.forwards(50)
-            #explorerhat.motor.two.forwards(100)
+            explorerhat.motor.two.forwards(100)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
