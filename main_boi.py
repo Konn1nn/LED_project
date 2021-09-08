@@ -17,11 +17,12 @@ def blink182(times = 10, wait_time = 0.5):
 
 def blink183(times = 10, wait_time = 0.5):
     clock = time.time_ns()
+    ns = 1000000000
     for i in range(1, times + 1):
         while True:
-            if time.time_ns() - clock >= 1000 * wait_time * i * 0.5:
+            if time.time_ns() - clock >= ns * wait_time * i * 0.5:
                 explorerhat.output.one.on()
-            if time.time_ns() - clock >= 1000 * wait_time * i:
+            if time.time_ns() - clock >= ns * wait_time * i:
                 explorerhat.output.one.off()
                 break
 
