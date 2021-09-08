@@ -17,13 +17,15 @@ def blink182(times = 10, wait_time = 0.5):
 
 def blink183(times = 10, wait_time = 0.5):
     clock = time.time()
+    bolli = True
     for i in range(1, times + 1):
+        bolli = True
         while True:
-            if time.time() - clock >= wait_time * i:
+            if time.time() - clock >= wait_time * i - (wait_time/2):
                 explorerhat.output.one.on()
                 print("{0} f {1}".format(time.time() - clock, i))
                 while True:
-                    if time.time() - clock >= wait_time * i + 0.5:
+                    if time.time() - clock >= wait_time * i:
                         explorerhat.output.one.off()
                         print("{0} s {1}".format(time.time() - clock, i))
                         break
