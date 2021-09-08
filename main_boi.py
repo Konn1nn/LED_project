@@ -104,9 +104,7 @@ def follow_line(r_set, g_set, b_set):
         if on_line(r_set, g_set, b_set):
             explorerhat.motor.two.forwards(50)
             explorerhat.motor.one.forwards(50)
-            time.sleep(0.1)
-            explorerhat.motor.two.stop()
-            explorerhat.motor.one.stop()
+            time.sleep(0.3)
         else:
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
