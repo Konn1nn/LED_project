@@ -119,6 +119,7 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
+            keep_running = False
             blink183()
             if explorerhat.touch.one.is_pressed() and explorerhat.touch.two.is_pressed():
                 keep_running = False
