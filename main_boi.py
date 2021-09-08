@@ -19,7 +19,7 @@ def blink183(times = 10, wait_time = 0.5):
     clock = time.time()
     for i in range(1, times + 1):
         while True:
-            if time.time() - clock >= wait_time * i * 0.5:
+            if wait_time * i > time.time() - clock >= wait_time * i * 0.5:
                 explorerhat.output.one.on()
                 print(time.time() - clock)
             if time.time() - clock >= wait_time * i:
