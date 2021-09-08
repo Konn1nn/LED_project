@@ -22,7 +22,7 @@ def blink183(times = 10, wait_time = 0.5):
             if time.time() - clock >= wait_time * i * 0.5:
                 explorerhat.output.one.on()
                 print(time.time() - clock)
-            if time.time() - clock >= ns * wait_time * i:
+            if time.time() - clock >= wait_time * i:
                 explorerhat.output.one.off()
                 print(time.time() - clock)
                 break
