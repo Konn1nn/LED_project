@@ -115,6 +115,16 @@ def follow_line(r_set, g_set, b_set):
     return False
 
 
+def test_loop():
+    const = 0.1
+    power = 60
+    for i in range(5):
+        time.sleep(const)
+        explorerhat.motor.two.forwards(power)
+        explorerhat.motor.one.forwards(power)
+        time.sleep(const)
+        explorerhat.motor.one.stop()
+        explorerhat.motor.two.stop()
 
 
 def main():
@@ -125,9 +135,8 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
-            blink183()
-            if explorerhat.touch.one.is_pressed() and explorerhat.touch.two.is_pressed():
-                keep_running = False
+            #blink183()
+            test_loop()
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
             print("The read values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
