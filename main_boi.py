@@ -21,11 +21,11 @@ def blink183(times = 10, wait_time = 0.5):
         while True:
             if time.time() - clock >= wait_time * i * 0.5:
                 explorerhat.output.one.on()
-                print(time.time() - clock + " f " + i)
+                print("{0} f {1}".format(time.time() - clock, i))
                 while True:
                     if time.time() - clock >= wait_time * i:
                         explorerhat.output.one.off()
-                        print(time.time() - clock + " s " + i)
+                        print("{0} s {1}".format(time.time() - clock, i))
                         break
                 break
 def drive(motor1 = 50, motor2 = 50, length = 2):
