@@ -16,16 +16,15 @@ def blink182(times = 10, wait_time = 0.5):
         time.sleep(wait_time/2)
 
 def blink183(times = 10, wait_time = 0.5):
-    clock = time.time_ns()
-    ns = 1,000,000,000
+    clock = time.time()
     for i in range(1, times + 1):
         while True:
-            if time.time_ns() - clock >= ns * wait_time * i * 0.5:
+            if time.time() - clock >= wait_time * i * 0.5:
                 explorerhat.output.one.on()
-                print(time.time_ns() - clock)
-            if time.time_ns() - clock >= ns * wait_time * i:
+                print(time.time() - clock)
+            if time.time() - clock >= ns * wait_time * i:
                 explorerhat.output.one.off()
-                print(time.time_ns() - clock)
+                print(time.time() - clock)
                 break
 
 def drive(motor1 = 50, motor2 = 50, length = 2):
