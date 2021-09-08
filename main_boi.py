@@ -102,6 +102,7 @@ def follow_line(r_set, g_set, b_set):
     r_read, g_read, b_read = 0, 0, 0
     while keep_running:
         if on_line(r_set, g_set, b_set):
+            time.sleep(0.05)
             explorerhat.motor.two.forwards(50)
             explorerhat.motor.one.forwards(50)
             time.sleep(0.05)
