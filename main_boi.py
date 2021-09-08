@@ -119,7 +119,6 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
-            keep_running = False
             blink183()
             if explorerhat.touch.one.is_pressed() and explorerhat.touch.two.is_pressed():
                 keep_running = False
@@ -131,8 +130,9 @@ def main():
             follow_line(red, green, blue)
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
+            keep_running = False
             explorerhat.motor.one.forwards(50)
-            explorerhat.motor.two.forwards(100)
+            explorerhat.motor.two.forwards(50)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
