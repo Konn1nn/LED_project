@@ -105,7 +105,7 @@ def follow_line(r_set, g_set, b_set):
             time.sleep(0.2)
             explorerhat.motor.two.forwards(50)
             #explorerhat.motor.one.forwards(50)
-            time.sleep(0.2)
+            time.sleep(1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
         else:
