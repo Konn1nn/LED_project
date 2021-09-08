@@ -23,11 +23,9 @@ def blink183(times = 10, wait_time = 0.5):
         while True:
             if time.time() - clock >= wait_time * i - (wait_time/2):
                 explorerhat.output.one.on()
-                print("{0} f {1}".format(time.time() - clock, i))
                 while True:
                     if time.time() - clock >= wait_time * i:
                         explorerhat.output.one.off()
-                        print("{0} s {1}".format(time.time() - clock, i))
                         break
                 break
 def drive(motor1 = 50, motor2 = 50, length = 2):
@@ -104,8 +102,8 @@ def follow_line(r_set, g_set, b_set):
     r_read, g_read, b_read = 0, 0, 0
     while keep_running:
         if on_line(r_set, g_set, b_set):
-            explorerhat.motor.one.forwards(50)
             explorerhat.motor.two.forwards(50)
+            explorerhat.motor.one.forwards(50)
             time.sleep(0.3)
         else:
             explorerhat.motor.one.stop()
@@ -129,7 +127,7 @@ def main():
                 keep_running = False
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
-            print("The set values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
+            print("The read values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
         elif explorerhat.touch.three.is_pressed():
             blink182(3, 1)
             follow_line(red, green, blue)
