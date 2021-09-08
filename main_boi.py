@@ -116,9 +116,9 @@ def follow_line(r_set, g_set, b_set):
 
 
 def test_loop():
-    const = 0.1
+    const = 0.2
     power = 60
-    for i in range(5):
+    for i in range(10):
         time.sleep(const)
         explorerhat.motor.two.forwards(power)
         explorerhat.motor.one.forwards(power)
