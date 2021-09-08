@@ -131,12 +131,13 @@ def main():
             blink182(20, 0.1)
         elif explorerhat.touch.four.is_pressed():
             keep_running = False
+            """
             explorerhat.motor.one.forwards(50)
             explorerhat.motor.two.forwards(50)
             blink182(1, 1)
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
-
+            """
     return
 
 if __name__ == "__main__":
