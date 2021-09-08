@@ -15,6 +15,16 @@ def blink182(times = 10, wait_time = 0.5):
         explorerhat.output.one.off()
         time.sleep(wait_time/2)
 
+def blink183(times = 10, wait_time = 0.5):
+    clock = time.time_ns()
+    for i in range(times):
+        while True:
+            if clock >= 1000 * wait_time * i * 0.5:
+                explorerhat.output.one.on()
+            if clock >= 1000 * wait_time * i:
+                explorerhat.output.one.off()
+                break
+
 def drive(motor1 = 50, motor2 = 50, length = 2):
     explorerhat.motor.one.forwards(motor1)
     explorerhat.motor.two.forwards(motor2)
@@ -29,12 +39,9 @@ def on_line(r_set, g_set, b_set):
     g_diff = g_set - g_read
     b_diff = b_set - b_read
     print("The set values are red: {0} , green {1} , blue: {2}".format(r_read, g_read, b_read))
-    if (r_diff < tolerance and
-            r_diff > -tolerance and
-            g_diff < tolerance and
-            g_diff > -tolerance and
-            b_diff < tolerance and
-            b_diff > -tolerance):
+    if (tolerance > r_diff > -tolerance and
+            tolerance > g_diff > -tolerance and
+            tolerance > b_diff > -tolerance):
         return True
     else:
         return False
@@ -112,7 +119,9 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
-            blink182()
+            blink183()
+            if explorerhat.touch.one.is_pressed() and explorerhat.touch.two.is_pressed():
+                keep_running = False
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
             print("The set values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
