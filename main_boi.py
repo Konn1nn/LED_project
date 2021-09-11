@@ -117,12 +117,12 @@ def follow_line(r_set, g_set, b_set):
 
 def test_loop():
     const = 0.2
-    power = 60
+    power = 100
     start = time.time()
     while True:
-        explorerhat.motor.two.forwards(60)
-        explorerhat.motor.one.backwards(60)
-        if start - time.time() > 5:
+        explorerhat.motor.two.forwards(const)
+        explorerhat.motor.one.backwards(const)
+        if time.time() - start > 5:
             explorerhat.motor.one.stop()
             explorerhat.motor.two.stop()
             break
