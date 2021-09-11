@@ -8,6 +8,10 @@ import adafruit_tcs34725
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_tcs34725.TCS34725(i2c)
 
+class My_bool:
+    def __init__(self):
+        self.boolean = True
+
 def blink182(times = 10, wait_time = 0.5):
     for i in range(times):
         explorerhat.output.one.on()
@@ -51,12 +55,27 @@ def on_line(r_set, g_set, b_set):
 
 def find_line(r_set, g_set, b_set):
     speed = 60
+    my_bool = My_bool()
+    ret_bool = False
 
+    ret_bool = check_direction(my_bool)
+    my_bool.boolean = not my_bool.boolean
+    ret_bool = check_direction(my_bool)
+    ret_bool = check_direction(my_bool)
+    my_bool.boolean = not my_bool.boolean
+    ret_bool = check_direction(my_bool)
+    return ret_bool
 
+def check_direction(my_bool: My_bool):
     # Go left
+
     for i in range(8):
-        explorerhat.motor.one.backwards(speed)
-        explorerhat.motor.two.forwards(speed)
+        if my_bool.boolean:
+            explorerhat.motor.one.backwards(speed)
+            explorerhat.motor.two.forwards(speed)
+        else:
+            explorerhat.motor.one.forwards(speed)
+            explorerhat.motor.two.backwards(speed)
         time.sleep(0.1)
         explorerhat.motor.one.stop()
         explorerhat.motor.two.stop()
@@ -66,39 +85,6 @@ def find_line(r_set, g_set, b_set):
             explorerhat.motor.two.stop()
             return True
         time.sleep(0.1)
-
-    # Check right
-    for i in range(16):
-        explorerhat.motor.one.forwards(speed)
-        explorerhat.motor.two.backwards(speed)
-        time.sleep(0.1)
-        explorerhat.motor.one.stop()
-        explorerhat.motor.two.stop()
-        time.sleep(0.1)
-        if on_line(r_set, g_set, b_set):
-            explorerhat.motor.one.stop()
-            explorerhat.motor.two.stop()
-            return True
-        time.sleep(0.1)
-
-
-    # Go left
-    for i in range(8):
-        explorerhat.motor.one.backwards(speed)
-        explorerhat.motor.two.forwards(speed)
-        time.sleep(0.1)
-        explorerhat.motor.one.stop()
-        explorerhat.motor.two.stop()
-        time.sleep(0.1)
-        if on_line(r_set, g_set, b_set):
-            explorerhat.motor.one.stop()
-            explorerhat.motor.two.stop()
-            return True
-        time.sleep(0.1)
-
-
-
-    return False
 
 def follow_line(r_set, g_set, b_set):
     keep_running = True
