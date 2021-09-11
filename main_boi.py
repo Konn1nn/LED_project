@@ -54,7 +54,6 @@ def on_line(r_set, g_set, b_set):
         return False
 
 def find_line(r_set, g_set, b_set):
-    speed = 60
     my_bool = My_bool()
     ret_bool = False
 
@@ -67,8 +66,9 @@ def find_line(r_set, g_set, b_set):
     return ret_bool
 
 def check_direction(my_bool: My_bool):
-    # Go left
 
+    speed = 60
+    # Go left
     for i in range(8):
         if my_bool.boolean:
             explorerhat.motor.one.backwards(speed)
