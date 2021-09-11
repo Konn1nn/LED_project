@@ -135,8 +135,8 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
-            #blink183()
-            test_loop()
+            blink183()
+            #test_loop()
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
             print("The read values are red: {0} , green {1} , blue: {2}".format(red, green, blue))
