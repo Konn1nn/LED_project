@@ -118,14 +118,15 @@ def follow_line(r_set, g_set, b_set):
 def test_loop():
     const = 0.2
     power = 60
-    for i in range(10):
-        time.sleep(const)
-        explorerhat.motor.two.forwards(power)
-        explorerhat.motor.one.forwards(power)
-        time.sleep(const)
-        explorerhat.motor.one.stop()
-        explorerhat.motor.two.stop()
-
+    start = time.get_time()
+    while True:
+        explorerhat.motor.two.forwards(60)
+        explorerhat.motor.one.backwards(60)
+        if start - time.get_time() > 5:
+            explorerhat.motor.one.stop()
+            explorerhat.motor.two.stop()
+            break
+    return
 
 def main():
     explorerhat.light.on()
