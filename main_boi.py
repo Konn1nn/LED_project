@@ -7,7 +7,7 @@ import adafruit_tcs34725
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_tcs34725.TCS34725(i2c)
-my_bool = My_bool()
+
 
 class My_bool:
     def __init__(self):
@@ -128,6 +128,7 @@ def main():
     explorerhat.light.on()
     keep_running = True
     explorerhat.motor.one.invert()
+    my_bool = My_bool()
 
     red, green, blue = 0, 0, 0
     while keep_running:
