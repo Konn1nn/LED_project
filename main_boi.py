@@ -120,8 +120,8 @@ def test_loop():
     power = 100
     start = time.time()
     while True:
-        explorerhat.motor.two.forwards(power)
-        explorerhat.motor.one.forwards(power)
+        explorerhat.motor.two.forwards(100)
+        explorerhat.motor.one.forwards(90)
         print(time.time() - start)
         if time.time() - start > 5.0:
             explorerhat.motor.one.stop()
