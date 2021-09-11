@@ -124,11 +124,13 @@ def test_loop():
             break
     return
 
+
+my_bool = My_bool()
 def main():
     explorerhat.light.on()
     keep_running = True
     explorerhat.motor.one.invert()
-    my_bool = My_bool()
+
 
     red, green, blue = 0, 0, 0
     while keep_running:
