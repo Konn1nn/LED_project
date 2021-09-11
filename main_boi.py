@@ -67,6 +67,7 @@ def find_line(r_set, g_set, b_set):
     my_bool.boolean = not my_bool.boolean
     if check_direction(my_bool, r_set, g_set, b_set):
         return True
+    my_bool.boolean = not my_bool.boolean
     return ret_bool
 
 def check_direction(my_bool: My_bool, r_set, g_set, b_set):
