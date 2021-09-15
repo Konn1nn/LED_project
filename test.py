@@ -5,7 +5,7 @@ import time
 if __name__ == "__main__":
     keep_running = True
     explorerhat.light.on()
-    distance_sensor = explorerhat.analog.one
+    distance_sensor = explorerhat.analog.two
     trigger = explorerhat.output.two
 
     while keep_running:
