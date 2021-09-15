@@ -6,7 +6,7 @@ if __name__ == "__main__":
     keep_running = True
     explorerhat.light.on()
     distance_sensor = explorerhat.AnalogInput(1)
-    trigger = explorerhat.Output(8)
+    trigger = explorerhat.Output(12)
 
     while keep_running:
         trigger.on()
