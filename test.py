@@ -6,6 +6,6 @@ if __name__ == "__main__":
     explorerhat.light.on()
 
     while keep_running:
-        some_var = explorerhat.Analog.one.read()
+        some_var = explorerhat.read(1)
         if explorerhat.touch.four.is_pressed():
             keep_running = False
