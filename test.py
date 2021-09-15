@@ -14,6 +14,6 @@ if __name__ == "__main__":
         distance = distance_sensor.read()
         trigger.off()
         print(distance)
-        time.sleep(1)
+        #time.sleep(1)
         if explorerhat.touch.four.is_pressed():
             keep_running = False
