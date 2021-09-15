@@ -1,13 +1,11 @@
-def return_tuple():
-    a = 1
-    b = 2
-    c = 3
-    return (a, b, c)
+import explorerhat
 
-plumb = return_tuple()
-k, l, m = plumb
 
-print(k)
-print(l)
-print(m)
-print(plumb)
+if __name__ == "__main__":
+    keep_running = True
+    explorerhat.light.on()
+
+    while keep_running:
+        some_var = explorerhat.AnalogInput.one.read()
+        if explorerhat.touch.four.is_pressed():
+            keep_running = False
