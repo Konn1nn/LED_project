@@ -9,9 +9,9 @@ if __name__ == "__main__":
     trigger = explorerhat.output.two
 
     while keep_running:
-        trigger.off()
-        time.sleep(0.0001)
         trigger.on()
+        time.sleep(0.0001)
+        trigger.off()
         distance = distance_sensor.read()
         print(distance)
         time.sleep(0.5)
