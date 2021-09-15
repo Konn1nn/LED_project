@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     while keep_running:
         trigger.on()
-        time.sleep(0.00002)
+        time.sleep(0.00001)
         trigger.off()
         #time.sleep(0.01)
         distance = distance_sensor.read()
