@@ -12,6 +12,7 @@ if __name__ == "__main__":
         trigger.on()
         time.sleep(0.00002)
         trigger.off()
+        time.sleep(0.01)
         distance = distance_sensor.read()
 
         print(distance)
