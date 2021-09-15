@@ -9,10 +9,10 @@ if __name__ == "__main__":
     trigger = explorerhat.output.two
 
     while keep_running:
-        trigger.off()
-        time.sleep(0.0005)
-        distance = distance_sensor.read()
         trigger.on()
+        time.sleep(0.0001)
+        trigger.off()
+        distance = distance_sensor.read()
         print(distance)
         #time.sleep(1)
         if explorerhat.touch.four.is_pressed():
