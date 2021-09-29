@@ -15,9 +15,9 @@ if __name__ == "__main__":
     interval = 0.02
 
     while keep_running:
-        trigger.on()
+        trigger.off() # actually on
         time.sleep(trigger_time)
-        trigger.off()
+        trigger.on() # Actually off
         time.sleep(interval - trigger_time)
         #distance = distance_sensor.read()
 
