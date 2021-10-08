@@ -9,7 +9,7 @@ class DistanceSensor:
 
 #speed of sound: 343 m/s
 
-    def printer(self, value):
+    def printer(self, object, value):
         print(value, time.time())
 
 
