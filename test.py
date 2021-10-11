@@ -19,11 +19,11 @@ class DistanceSensor:
         elif value < 0.5:
             self.low = value
             self.low_time = time.time()
-            print("Meters: {0:.2f}".format(self.compute_reading()))
+            print("%.2f cm" % self.compute_reading())
         print(value, time.time())
 
     def compute_reading(self):
-        return 343*(self.low_time - self.high_time)
+        return (34300*(self.low_time - self.high_time))/2
 
 
 if __name__ == "__main__":
