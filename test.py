@@ -30,17 +30,19 @@ if __name__ == "__main__":
     ds = DistanceSensor()
     keep_running = True
     explorerhat.light.on()
-    distance_sensor = explorerhat.analog.one.changed(ds.printer)
+    explorerhat.analog.one.changed(ds.printer)
     trigger = explorerhat.output.two
 
     trigger_time = 0.00002
-    interval = 0.02
+    interval = 0.10 # Should be 60ms or 20ms instead of 100ms
 
     while keep_running:
-        trigger.off() # actually on
+        trigger.on() # Actually off, precaution for trigger
+        time.sleep(trigger_time)
+        trigger.off() # Actually on
         time.sleep(trigger_time)
         trigger.on() # Actually off
-        time.sleep(interval - trigger_time)
+        time.sleep(interval)
         #distance = distance_sensor.read()
 
         #print(distance)
