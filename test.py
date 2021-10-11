@@ -23,7 +23,7 @@ class DistanceSensor:
         print(value, time.time())
 
     def compute_reading(self):
-        return 343/(self.low_time - self.high_time)
+        return 343*(self.low_time - self.high_time)
 
 
 if __name__ == "__main__":
