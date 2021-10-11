@@ -5,12 +5,26 @@ import time
 class DistanceSensor:
     def __init__(self):
         self.high = 0
+        self.high_time = 0
         self.low = 0
+        self.low_time = 0
+
 
 #speed of sound: 343 m/s
 
     def printer(self, object, value):
+        if value > 3.0:
+            self.high = value
+            self.high_time = time.time()
+        elif value < 0.5:
+            self.low = value
+            self.low_time = time.time()
+            print("Meters?:")
+            print(self.compute_reading())
         print(value, time.time())
+
+    def compute_reading(self):
+        return 343/(self.low_time - self.high_time)
 
 
 if __name__ == "__main__":
