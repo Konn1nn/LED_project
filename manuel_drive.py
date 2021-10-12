@@ -11,7 +11,7 @@ def drive(forward = True):
         explorerhat.motor.two.forwards(motor_two)
         time.sleep(0.05)
         explorerhat.motor.one.forwards(30)
-        explorerhat.motor.two.forwards(25)
+        explorerhat.motor.two.forwards(28)
     else:
         explorerhat.motor.one.backwards(motor_one)
         explorerhat.motor.two.backwards(motor_two)
