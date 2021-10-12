@@ -1,5 +1,6 @@
 import getch
 import explorerhat
+import time
 
 
 
@@ -24,6 +25,15 @@ def stop():
 
 
 if __name__ == "__main__":
+    explorerhat.light.one.on()
+    time.sleep(0.2)
+    explorerhat.light.two.on()
+    time.sleep(0.2)
+    explorerhat.light.three.on()
+    time.sleep(0.2)
+    explorerhat.light.four.on()
+
+
     kb_input = ''
     while kb_input != 'q':
         kb_input = getch.getch()
