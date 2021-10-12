@@ -39,13 +39,13 @@ def getch():
 
 
 if __name__ == "__main__":
-    explorerhat.light.one.on()
+    explorerhat.light.blue.on()
     time.sleep(0.2)
-    explorerhat.light.two.on()
+    explorerhat.light.yellow.on()
     time.sleep(0.2)
-    explorerhat.light.three.on()
+    explorerhat.light.red.on()
     time.sleep(0.2)
-    explorerhat.light.four.on()
+    explorerhat.light.green.on()
 
     print("\nchar is '" + getch() + "'\n")
 
