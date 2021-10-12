@@ -15,9 +15,15 @@ def turn(right = True):
     if right:
         explorerhat.motor.one.forwards(100)
         explorerhat.motor.two.backwards(100)
+        time.sleep(0.1)
+        explorerhat.motor.one.forwards(30)
+        explorerhat.motor.two.backwards(30)
     else:
         explorerhat.motor.one.backwards(100)
         explorerhat.motor.two.forwards(100)
+        time.sleep(0.1)
+        explorerhat.motor.one.backwards(30)
+        explorerhat.motor.two.forwards(30)
 
 
 def stop():
