@@ -5,7 +5,7 @@ import time
 
 def drive(forward = True):
     motor_one = 100
-    motor_two = 95
+    motor_two = 98
     if forward:
         explorerhat.motor.one.forwards(motor_one)
         explorerhat.motor.two.forwards(motor_two)
