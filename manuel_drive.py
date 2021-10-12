@@ -4,8 +4,12 @@ import time
 
 
 def drive(forward = True):
-    explorerhat.motor.one.forwards(100)
-    explorerhat.motor.two.forwards(100)
+    if forward:
+        explorerhat.motor.one.forwards(100)
+        explorerhat.motor.two.forwards(100)
+    else:
+        explorerhat.motor.one.backwards(100)
+        explorerhat.motor.two.backwards(100)
 
 def turn(right = True):
     if right:
@@ -46,7 +50,7 @@ if __name__ == "__main__":
     explorerhat.light.red.on()
     time.sleep(0.2)
     explorerhat.light.green.on()
-
+    explorerhat.motor.one.invert()
     print("\nchar is '" + getch() + "'\n")
 
     kb_input = ''
@@ -60,5 +64,5 @@ if __name__ == "__main__":
             turn(False)
         elif kb_input == 'd':
             turn()
-        else:
+        elif kb_input == 'p':
             stop()
