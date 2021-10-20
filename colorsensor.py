@@ -45,7 +45,7 @@ def main():
     keeprunning = True
     while keeprunning:
         red, green, blue = cs.read_rgb()
-        print('Red: {red}, Green: {green}, Blue: {blue}'.format(red,green,blue))
+        print('Red: {0}, Green: {1}, Blue: {2}'.format(red,green,blue))
 
 if __name__ == '__main__':
     main()
