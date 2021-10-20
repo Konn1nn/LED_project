@@ -3,7 +3,7 @@ import time
 
 class DistanceSensor:
     def __init__(self):
-        setup()
+        self.setup()
         self.trigger = 12
         self.echo = 22
 
