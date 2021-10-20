@@ -42,6 +42,7 @@ def main():
     print('Colorsensor program test')
     cs = ColorSensor()
     cs.set_gain(16)
+    cs.set_integral(9.6)
     red, blue, green = 0, 0, 0
     keeprunning = True
     while keeprunning:
