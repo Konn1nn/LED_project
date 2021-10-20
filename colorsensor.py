@@ -41,7 +41,7 @@ class ColorSensor:
 def main():
     print('Colorsensor program test')
     cs = ColorSensor()
-    red, blue, green = 0
+    red, blue, green = 0, 0, 0
     keeprunning = True
     while keeprunning:
         red, green, blue = cs.read_rgb()
