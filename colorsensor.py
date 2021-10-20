@@ -35,3 +35,17 @@ class ColorSensor:
             self.sensor.integration_time = integral
         else:
             print("The integral has to be between 2.4 and 614.4")
+
+
+
+def main():
+    print('Colorsensor program test')
+    cs = ColorSensor()
+    red, blue, green = 0
+    keeprunning = True
+    while keeprunning:
+        red, green, blue = cs.read_rgb()
+        print('Red: {red}, Green: {green}, Blue: {blue}'.format(red,green,blue))
+
+if __name__ == '__main__':
+    main()
