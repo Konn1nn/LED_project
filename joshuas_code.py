@@ -9,7 +9,6 @@ import board
 import adafruit_tcs34725
 import busio
 import digitalio
-import adafruit_character_lcd.character_lcd as character_lcd
 import simple_pid
 import numpy
 
