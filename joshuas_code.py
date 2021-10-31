@@ -11,7 +11,6 @@ import busio
 import digitalio
 import simple_pid
 import numpy
-from distancesensor import DistanceSensor
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -146,14 +145,7 @@ offset = 1  # the motors do not have equal power, so we offset the throttle slig
 
 # start moving
 punch_throttles(33, 31)
-explorerhat.motor.one.invert()
-
-
-# Distance sensor
-my_ds = DistanceSensor()
-
 while (True):
-
 
     # get a color reading
     reading = adafruit_tcs34725.TCS34725(i2c)
@@ -186,8 +178,4 @@ while (True):
 
     # we don't want to sleep for very long because we want the pid controller to have as much data as possible
     time.sleep(0.01)
-
-    while(my_ds.distance() < 30):
-        print("Something big is in front of me")
-        time.sleep(0.1)
 
