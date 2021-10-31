@@ -11,7 +11,7 @@ import busio
 import digitalio
 import simple_pid
 import numpy
-import distancesensor
+from distancesensor import DistanceSensor
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -150,7 +150,7 @@ explorerhat.motor.one.invert()
 
 
 # Distance sensor
-my_ds = distancesensor()
+my_ds = DistanceSensor()
 
 while (my_ds.distance() > 30):
 
