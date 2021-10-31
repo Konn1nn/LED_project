@@ -185,7 +185,7 @@ while (True):
     # we don't want to sleep for very long because we want the pid controller to have as much data as possible
     time.sleep(0.01)
     distance = ds.distance()
-    while(distance < 30):
+    while(distance < 10):
         set_throttles(0, 0)
         print("There is a big thing %.1f cm in front of me" % distance)
         time.sleep(0.02)
