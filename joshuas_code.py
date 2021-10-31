@@ -11,6 +11,7 @@ import busio
 import digitalio
 import simple_pid
 import numpy
+import distancesensor
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -145,7 +146,13 @@ offset = 1  # the motors do not have equal power, so we offset the throttle slig
 
 # start moving
 punch_throttles(33, 31)
-while (True):
+explorerhat.motor.one.invert()
+
+
+# Distance sensor
+my_ds = distancesensor()
+
+while (my_ds.distance() > 30):
 
     # get a color reading
     reading = adafruit_tcs34725.TCS34725(i2c)
