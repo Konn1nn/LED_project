@@ -186,6 +186,7 @@ while (True):
     time.sleep(0.01)
     distance = ds.distance()
     while(distance < 30):
+        set_throttles(0, 0)
         print("There is a big thing %.1f cm in front of me" % distance)
         time.sleep(0.02)
         distance = ds.distance()
