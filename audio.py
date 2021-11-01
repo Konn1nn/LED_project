@@ -1,7 +1,6 @@
-# import required module
-from playsound import playsound
-
-# for playing note.mp3 file
-playsound('./maggimixoskur.mp3')
-print('playing sound using playsound')
-
+import pygame
+pygame.mixer.init()
+pygame.mixer.music.load("maggimixoskur.mp3")
+pygame.mixer.music.play()
+while pygame.mixer.music.get_busy() == True:
+    continue
