@@ -12,6 +12,7 @@ import digitalio
 import simple_pid
 import numpy
 from distancesensor import DistanceSensor
+import pygame
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -133,6 +134,10 @@ def punch_throttles(left=40, right=43, left_punch=100, right_punch=100, punch_ti
     time.sleep(punch_time)
     set_throttles(left, right)
 
+def play_sound():
+    pygame.mixer.init()
+    pygame.mixer.music.load("maggimixoskur.mp3")
+    pygame.mixer.music.play()
 
 # initialize
 signal.signal(signal.SIGINT, signal_handler)
@@ -141,7 +146,7 @@ print("Hello, world!")
 # instantiate a PID controller with kp=20, ki=4, kd=2.5, and setpoint=0
 pid_controller = simple_pid.PID(20, 4, 2.5, setpoint=0)
 
-base_throttle = 30
+base_throttle = 33
 offset = 1  # the motors do not have equal power, so we offset the throttle slightly to drive in a straight line
 
 # start moving
@@ -150,6 +155,8 @@ explorerhat.motor.one.invert()
 
 # distance sensor
 ds = DistanceSensor()
+
+time_since = 0
 
 while (True):
 
@@ -190,4 +197,7 @@ while (True):
         print("There is a big thing %.1f cm in front of me" % distance)
         time.sleep(0.02)
         distance = ds.distance()
+        if (time.time() - time_since) < 10:
+            play_sound()
+            time_since = time.time()
 
