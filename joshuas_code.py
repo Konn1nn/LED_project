@@ -138,6 +138,7 @@ def play_sound():
     pygame.mixer.init()
     pygame.mixer.music.load("maggimixoskur.mp3")
     pygame.mixer.music.play()
+    print("playing sound")
 
 # initialize
 signal.signal(signal.SIGINT, signal_handler)
@@ -197,7 +198,7 @@ while (True):
         print("There is a big thing %.1f cm in front of me" % distance)
         time.sleep(0.02)
         distance = ds.distance()
-        if (time.time() - time_since) < 10:
+        if (time.time() - time_since) > 10:
             play_sound()
             time_since = time.time()
 
