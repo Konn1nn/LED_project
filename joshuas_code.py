@@ -173,7 +173,7 @@ def turnoff():
     pygame.mixer.music.load("r2d2.mp3")
     pygame.mixer.music.play()
     explorerhat.output.one.blink(0.1, 0.1)
-    time.sleep(4)
+    time.sleep(2)
 
 
 def main():
