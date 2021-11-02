@@ -36,11 +36,11 @@ class DistanceSensor:
         StopTime = time.time()
 
         # save StartTime
-        while GPIO.input(self.echo) == 0:
+        while GPIO.input(self.echo) == 0 | (time.time() - StartTime) < 2.0:
             StartTime = time.time()
 
         # save time of arrival
-        while GPIO.input(self.echo) == 1:
+        while GPIO.input(self.echo) == 1 | (time.time() - StopTime) < 4.0:
             StopTime = time.time()
 
         # time difference between start and arrival
