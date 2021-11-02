@@ -13,6 +13,7 @@ import simple_pid
 import numpy
 from distancesensor import DistanceSensor
 import pygame
+import random
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -136,7 +137,13 @@ def punch_throttles(left=40, right=43, left_punch=100, right_punch=100, punch_ti
 
 def play_sound():
     pygame.mixer.init()
-    pygame.mixer.music.load("maggimixoskur.mp3")
+    maggisounds = ["Maggimix1.mp3",
+                   "Maggimix2.mp3",
+                   "Maggimix3.mp3",
+                   "Maggimix4.mp3",
+                   "maggimixoskur.mp3"]
+    rnd_number = random.randint(0,4)
+    pygame.mixer.music.load(maggisounds[rnd_number])
     pygame.mixer.music.play()
     print("playing sound")
 
