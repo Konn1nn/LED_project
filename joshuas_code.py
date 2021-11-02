@@ -205,7 +205,7 @@ while (True):
         print("There is a big thing %.1f cm in front of me" % distance)
         time.sleep(0.02)
         distance = ds.distance()
-        if (time.time() - time_since) > 3:
+        if (time.time() - time_since) > 5:
             play_sound()
             time_since = time.time()
 
