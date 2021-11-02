@@ -89,6 +89,7 @@ def stop():
 def signal_handler(sig, frame):
     stop()
     print("User interrupt!")
+    turnoff()
     sys.exit(0)
 
 
@@ -150,10 +151,34 @@ def play_sound():
     pygame.mixer.music.play()
     print("playing sound")
 
+def startup():
+    pygame.mixer.init()
+    pygame.mixer.music.load("ps1.mp3")
+    pygame.mixer.music.play()
+    explorerhat.light.blue.fade(0,100,1)
+    time.sleep(1)
+    explorerhat.light.green.fade(0, 100, 1)
+    time.sleep(1)
+    explorerhat.light.red.fade(0, 100, 1)
+    time.sleep(1)
+    explorerhat.light.yellow.fade(0, 100, 1)
+    time.sleep(1)
+    explorerhat.output.one.blink(0.2,0.2)
+    time.sleep(1)
+    explorerhat.output.one.off()
+
+def turnoff():
+    pygame.mixer.init()
+    pygame.mixer.music.load("r2d2.mp3")
+    pygame.mixer.music.play()
+    time.sleep(4)
+
+
 def main():
     # initialize
     signal.signal(signal.SIGINT, signal_handler)
     print("Hello, world!")
+    startup()
 
     # instantiate a PID controller with kp=20, ki=4, kd=2.5, and setpoint=0
     pid_controller = simple_pid.PID(20, 4, 2.5, setpoint=0)
