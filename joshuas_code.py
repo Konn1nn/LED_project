@@ -150,65 +150,69 @@ def play_sound():
     pygame.mixer.music.play()
     print("playing sound")
 
-# initialize
-signal.signal(signal.SIGINT, signal_handler)
-print("Hello, world!")
+def main():
+    # initialize
+    signal.signal(signal.SIGINT, signal_handler)
+    print("Hello, world!")
 
-# instantiate a PID controller with kp=20, ki=4, kd=2.5, and setpoint=0
-pid_controller = simple_pid.PID(20, 4, 2.5, setpoint=0)
+    # instantiate a PID controller with kp=20, ki=4, kd=2.5, and setpoint=0
+    pid_controller = simple_pid.PID(20, 4, 2.5, setpoint=0)
 
-base_throttle = 33
-offset = 1  # the motors do not have equal power, so we offset the throttle slightly to drive in a straight line
+    base_throttle = 33
+    offset = 1  # the motors do not have equal power, so we offset the throttle slightly to drive in a straight line
 
-# start moving
-punch_throttles(33, 31)
-explorerhat.motor.one.invert()
+    # start moving
+    punch_throttles(33, 31)
+    explorerhat.motor.one.invert()
 
-# distance sensor
-ds = DistanceSensor()
+    # distance sensor
+    ds = DistanceSensor()
 
-time_since = 0
+    time_since = 0
 
-while (True):
+    while (True):
 
-    # get a color reading
-    reading = adafruit_tcs34725.TCS34725(i2c)
+        # get a color reading
+        reading = adafruit_tcs34725.TCS34725(i2c)
 
-    # normalize the color reading
-    normalized_rgb = normalize(reading.color_rgb_bytes)
+        # normalize the color reading
+        normalized_rgb = normalize(reading.color_rgb_bytes)
 
-    # determine the actual color (unused for now)
-    color = get_color(normalized_rgb)
+        # determine the actual color (unused for now)
+        color = get_color(normalized_rgb)
 
-    # determine the input to the pid controller
-    score = get_score(normalized_rgb)
-    if (score != 0 and score != -1 and score != 1):
-        last_valid_score = score
+        # determine the input to the pid controller
+        score = get_score(normalized_rgb)
+        if (score != 0 and score != -1 and score != 1):
+            last_valid_score = score
 
-    # input the score to the pid controller and get back a control effort
-    control = pid_controller(score)
+        # input the score to the pid controller and get back a control effort
+        control = pid_controller(score)
 
-    # set the left and right throttles, with the offset and the control effort from the pid controller
-    left = base_throttle + offset + control
-    right = base_throttle - offset - control
+        # set the left and right throttles, with the offset and the control effort from the pid controller
+        left = base_throttle + offset + control
+        right = base_throttle - offset - control
 
-    # propagate the throttle values to the motors
-    set_throttles(left, right)
+        # propagate the throttle values to the motors
+        set_throttles(left, right)
 
-    # notify
-    print(f"{left} , {right}")
+        # notify
+        print(f"{left} , {right}")
 
-    #    print(f"{normalized_rgb} ({color}) -> {score}")
+        #    print(f"{normalized_rgb} ({color}) -> {score}")
 
-    # we don't want to sleep for very long because we want the pid controller to have as much data as possible
-    time.sleep(0.01)
-    distance = ds.distance()
-    while(distance < 10):
-        set_throttles(0, 0)
-        print("There is a big thing %.1f cm in front of me" % distance)
-        time.sleep(0.02)
+        # we don't want to sleep for very long because we want the pid controller to have as much data as possible
+        time.sleep(0.01)
         distance = ds.distance()
-        if (time.time() - time_since) > 3:
-            play_sound()
-            time_since = time.time()
+        while(distance < 10):
+            set_throttles(0, 0)
+            print("There is a big thing %.1f cm in front of me" % distance)
+            time.sleep(0.02)
+            distance = ds.distance()
+            if (time.time() - time_since) > 3:
+                play_sound()
+                time_since = time.time()
 
+
+if __name__ == "__main__":
+    main()
