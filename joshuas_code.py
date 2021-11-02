@@ -20,7 +20,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 
 # score is the input to the pid controller
 score = 0
-global last_valid_score = None  # placeholder for the most recent time an actual color was seen
+last_valid_score = None  # placeholder for the most recent time an actual color was seen
 
 
 # create a normalized vector from the rgb triplet.
@@ -66,6 +66,7 @@ def get_score(rgb):
 
     color = get_color(rgb)
     if (color == "table"):
+        global last_valid_score
         if (last_valid_score > 0):
             score = 1
         else:
@@ -209,7 +210,8 @@ def main():
         # determine the input to the pid controller
         score = get_score(normalized_rgb)
         if (score != 0 and score != -1 and score != 1):
-            global last_valid_score = score
+            global last_valid_score
+            last_valid_score = score
 
         # input the score to the pid controller and get back a control effort
         control = pid_controller(score)
