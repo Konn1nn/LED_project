@@ -232,7 +232,7 @@ def main():
         time.sleep(0.01)
         distance = ds.distance()
         while(distance < 10):
-            explorerhat.output.two.blink(0.1,0.1)
+            explorerhat.output.one.blink(0.1,0.1)
             set_throttles(0, 0)
             print("There is a big thing %.1f cm in front of me" % distance)
             time.sleep(0.02)
@@ -240,7 +240,7 @@ def main():
             if (time.time() - time_since) > 3:
                 play_sound()
                 time_since = time.time()
-        explorerhat.output.two.off()
+        explorerhat.output.one.off()
 
 if __name__ == "__main__":
     main()
