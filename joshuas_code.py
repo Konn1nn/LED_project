@@ -2,7 +2,7 @@
 
 import sys
 import signal
-
+sys.path.append('/home/pi/.local/lib/python3.7/site-packages/simple_pid')
 import explorerhat
 import time
 import board
