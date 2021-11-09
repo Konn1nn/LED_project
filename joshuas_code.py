@@ -146,8 +146,11 @@ def play_sound():
                    "Maggimix6.mp3",
                    "Maggimix7.mp3",
                    "maggimixoskur.mp3"]
-    rnd_number = random.randint(0,7)
-    pygame.mixer.music.load(maggisounds[rnd_number])
+    rusounds = ["hakon.mp3",
+                "joi.mp3"]
+    sounds = rusounds
+    rnd_number = random.randint(0,len(sounds))
+    pygame.mixer.music.load(sounds[rnd_number])
     pygame.mixer.music.play()
     print("playing sound")
 
