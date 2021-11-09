@@ -149,7 +149,7 @@ def play_sound():
     rusounds = ["hakon.mp3",
                 "joi.mp3"]
     sounds = rusounds
-    rnd_number = random.randint(0,len(sounds))
+    rnd_number = random.randint(0,len(sounds)-1)
     pygame.mixer.music.load(sounds[rnd_number])
     pygame.mixer.music.play()
     print("playing sound")
