@@ -201,7 +201,7 @@ def main():
     time_since = 0
     keep_running = True
     while (keep_running):
-        if explorerhat.touch.four.is_pressed():
+        if explorerhat.touch.two.is_pressed():
             keep_running = False
         # get a color reading
         reading = adafruit_tcs34725.TCS34725(i2c)
