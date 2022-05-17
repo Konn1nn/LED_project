@@ -1,13 +1,11 @@
 import time
 import explorerhat
 
-import board
 import adafruit_tcs34725
 
 import joshuas_code
 
-i2c = board.I2C()  # uses board.SCL and board.SDA
-sensor = adafruit_tcs34725.TCS34725(i2c)
+
 
 
 class My_bool:
