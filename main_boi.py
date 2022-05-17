@@ -4,6 +4,7 @@ import explorerhat
 import board
 import adafruit_tcs34725
 
+import joshuas_code
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_tcs34725.TCS34725(i2c)
@@ -129,14 +130,14 @@ my_bool = My_bool()
 def main():
     explorerhat.light.on()
     keep_running = True
-    explorerhat.motor.one.invert()
+
 
 
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
             blink183()
-            #test_loop()
+            joshuas_code.main()
         elif explorerhat.touch.two.is_pressed(): # set the color
             red, green, blue = sensor.color_rgb_bytes
             blink183(1, 0.2)
