@@ -1,7 +1,6 @@
 import time
 import explorerhat
 
-import adafruit_tcs34725
 
 import joshuas_code
 
