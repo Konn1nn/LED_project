@@ -188,7 +188,7 @@ def main():
     # instantiate a PID controller with kp=20, ki=4, kd=2.5, and setpoint=0
     pid_controller = simple_pid.PID(20, 4, 2.5, setpoint=0)
 
-    base_throttle = 40
+    base_throttle = 30
     offset = 1  # the motors do not have equal power, so we offset the throttle slightly to drive in a straight line
 
     # start moving
