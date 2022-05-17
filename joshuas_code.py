@@ -203,6 +203,9 @@ def main():
     while (keep_running):
         if explorerhat.touch.two.is_pressed():
             keep_running = False
+            stop()
+            turnoff()
+            break
         # get a color reading
         reading = adafruit_tcs34725.TCS34725(i2c)
 
