@@ -133,7 +133,6 @@ def main():
     red, green, blue = 0, 0, 0
     while keep_running:
         if explorerhat.touch.one.is_pressed():
-            blink183()
             joshuas_code.main()
         elif explorerhat.touch.two.is_pressed(): # set the color
             blink183(1, 0.2)
