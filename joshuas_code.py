@@ -13,6 +13,7 @@ import numpy
 from distancesensor import DistanceSensor
 import pygame
 import random
+from .colorsensor2 import TCS34725
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -149,7 +150,7 @@ def play_sound():
     rusounds = ["hakon.mp3",
                 "joi.mp3",
                 "krissi.mp3"]
-    sounds = rusounds
+    sounds = maggisounds
     rnd_number = random.randint(0,len(sounds)-1)
     pygame.mixer.music.load(sounds[rnd_number])
     pygame.mixer.music.play()
@@ -207,7 +208,7 @@ def main():
             turnoff()
             break
         # get a color reading
-        reading = adafruit_tcs34725.TCS34725(i2c)
+        reading = TCS34725(i2c)
 
         # normalize the color reading
         normalized_rgb = normalize(reading.color_rgb_bytes)
