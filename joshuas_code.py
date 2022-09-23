@@ -13,7 +13,7 @@ import numpy
 from distancesensor import DistanceSensor
 import pygame
 import random
-from .colorsensor2 import TCS34725
+from colorsensor2 import TCS34725
 
 # initializeColorSensor
 i2c = busio.I2C(board.SCL, board.SDA)
