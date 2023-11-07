@@ -177,6 +177,7 @@ def main():
             print(f"There is a big thing {distance:.1f} cm in front of me")
             # Sleep briefly to avoid tight loop with no delay
             time.sleep(0.02)
+            distance = distance_sensor.distance()
             if time.time() - time_since_last_sound > SOUND_INTERVAL:
                 play_sound()
                 time_since_last_sound = time.time()
