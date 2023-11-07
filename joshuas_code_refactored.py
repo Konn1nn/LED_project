@@ -114,13 +114,28 @@ def play_sound(sound_type="maggisounds"):
 
 def startup_sequence():
     """Perform the startup sequence with lights and sound."""
+    explorerhat.light.blue.off()
+    explorerhat.light.yellow.off()
+    explorerhat.light.red.off()
+    explorerhat.light.green.off()
     play_sound("startup")
-    # Add here any additional startup procedures, like lighting sequences
+    explorerhat.light.blue.fade(0,100,2)
+    time.sleep(2)
+    explorerhat.light.yellow.fade(0, 100, 2)
+    time.sleep(2)
+    explorerhat.light.red.fade(0, 100, 2)
+    time.sleep(2)
+    explorerhat.light.green.fade(0, 100, 2)
+    time.sleep(2)
+    explorerhat.output.one.blink(0.2,0.2)
+    time.sleep(2)
+    explorerhat.output.one.off()
 
 def shutdown_sequence():
     """Perform the shutdown sequence with lights and sound."""
     play_sound("shutdown")
-    # Add here any additional shutdown procedures, like turning off lights
+    xplorerhat.output.one.blink(0.1, 0.1)
+    time.sleep(2)
 
 # Main Functionality
 def main():
@@ -167,11 +182,12 @@ def main():
         set_throttles(left_throttle, right_throttle)
 
         #print(f"Throttles set to: Left={left_throttle}, Right={right_throttle}")
-        print(f"{normalized_rgb} ({color_sensor.color_rgb_bytes}) -> {score}")
+        #print(f"{normalized_rgb} ({color_sensor.color_rgb_bytes}) -> {score}")
 
         # Check for obstacles using the distance sensor
         distance = distance_sensor.distance()
-        while distance < MIN_DISTANCE:
+        print(distance)
+        while False:#distance < MIN_DISTANCE:
             output.one.blink(0.1, 0.1)
             set_throttles(0, 0)
             print(f"There is a big thing {distance:.1f} cm in front of me")
