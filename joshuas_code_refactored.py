@@ -171,19 +171,19 @@ def main():
 
         # Check for obstacles using the distance sensor
         distance = distance_sensor.distance()
-        if distance < MIN_DISTANCE:
+        while distance < MIN_DISTANCE:
             output.one.blink(0.1, 0.1)
             set_throttles(0, 0)
             print(f"There is a big thing {distance:.1f} cm in front of me")
             # Sleep briefly to avoid tight loop with no delay
             time.sleep(0.02)
-        else:
-            output.one.off()
+            if time.time() - time_since_last_sound > SOUND_INTERVAL:
+                play_sound()
+                time_since_last_sound = time.time()
+        output.one.off()
 
         # Play sound periodically
-        if time.time() - time_since_last_sound > SOUND_INTERVAL:
-            play_sound()
-            time_since_last_sound = time.time()
+        
 
         # Sleep briefly to avoid tight loop with no delay
         time.sleep(0.01)
