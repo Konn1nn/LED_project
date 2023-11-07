@@ -23,8 +23,8 @@ COLOR_NAMES = ["red", "green", "blue"]
 COLOR_SCORES = {"red": -0.5, "green": 0, "blue": 0.5, "table": 1}
 SOUND_FILES_DIR = "/home/pi/Documents/LED_project/"
 SOUND_FILES = {
-    "startup": "ps1.mp3",
-    "shutdown": "r2d2.mp3",
+    "startup": ["ps1.mp3"],
+    "shutdown": ["r2d2.mp3"],
     "maggisounds": [
         "Maggimix1.mp3", "Maggimix2.mp3", "Maggimix3.mp3",
         "Maggimix4.mp3", "Maggimix5.mp3", "Maggimix6.mp3",
