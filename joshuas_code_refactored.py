@@ -145,7 +145,7 @@ def main():
     print("Hello, world!")
     startup_sequence()
     
-    # PID controller setup
+   # PID controller setup
     pid_controller = PID(20, 4, 2.5, setpoint=0)
     
     # Motor startup
@@ -186,8 +186,13 @@ def main():
 
         # Check for obstacles using the distance sensor
         distance = distance_sensor.distance()
+<<<<<<< HEAD
         print(distance)
         while False:#distance < MIN_DISTANCE:
+=======
+        #print(distance)
+        while distance < MIN_DISTANCE:
+>>>>>>> 9b8edff794b539866c50359cd3c7bcb44891f29e
             output.one.blink(0.1, 0.1)
             set_throttles(0, 0)
             print(f"There is a big thing {distance:.1f} cm in front of me")
