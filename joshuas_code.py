@@ -152,14 +152,14 @@ def play_sound():
                 "krissi.mp3"]
     sounds = maggisounds
     rnd_number = random.randint(0,len(sounds)-1)
-    sound_file = '/home/pi/Documents/LED_project' + sounds[rnd_number]
+    sound_file = '/home/pi/Documents/LED_project/' + sounds[rnd_number]
     pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play()
     print("playing sound")
 
 def startup():
     pygame.mixer.init()
-    pygame.mixer.music.load("ps1.mp3")
+    pygame.mixer.music.load("/home/pi/Documents/LED_project/ps1.mp3")
     pygame.mixer.music.play()
     explorerhat.light.blue.fade(0,100,2)
     time.sleep(2)
@@ -175,7 +175,7 @@ def startup():
 
 def turnoff():
     pygame.mixer.init()
-    pygame.mixer.music.load("r2d2.mp3")
+    pygame.mixer.music.load("/home/pi/Documents/LED_project/r2d2.mp3")
     pygame.mixer.music.play()
     explorerhat.output.one.blink(0.1, 0.1)
     time.sleep(2)
