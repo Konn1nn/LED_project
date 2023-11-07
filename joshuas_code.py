@@ -152,7 +152,8 @@ def play_sound():
                 "krissi.mp3"]
     sounds = maggisounds
     rnd_number = random.randint(0,len(sounds)-1)
-    pygame.mixer.music.load(sounds[rnd_number])
+    sound_file = '/home/pi/Documents/LED_project' + sounds[rnd_number]
+    pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play()
     print("playing sound")
 
