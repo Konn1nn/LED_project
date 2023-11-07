@@ -23,10 +23,10 @@ score = 0
 last_valid_score = None  # placeholder for the most recent time an actual color was seen
 
 
-# create a normalized vector from the rgb triplet.
+# create a normalized vector from the rgb_vector triplet.
 # normalizing the vector allows you to easily tell the magnitude of a single component relative to the others
-def normalize(rgb):
-    r, g, b = rgb[0], rgb[1], rgb[2]
+def normalize(rgb_vector):
+    r, g, b = rgb_vector[0], rgb_vector[1], rgb_vector[2]
 
     magnitude = (r ** 2 + g ** 2 + b ** 2) ** 0.5
 
@@ -37,34 +37,34 @@ def normalize(rgb):
     return (r, g, b)
 
 
-# go from an RGB color vector to a high level interpretation of the color
-def get_color(rgb):
+# go from an rgb_vector color vector to a high level interpretation of the color
+def get_color(rgb_vector):
     result = None
     lower_limit = 0.64
 
     colors = ["red", "green", "blue"]
 
-    r = rgb[0]
-    g = rgb[1]
-    b = rgb[2]
+    red = rgb_vector[0]
+    green = rgb_vector[1]
+    blue = rgb_vector[2]
 
     # if none of the colors are particularly strong then assume it's the table
-    if (r < lower_limit and g < lower_limit and b < lower_limit):
+    if (red < lower_limit and green < lower_limit and blue < lower_limit):
         result = "table"
     else:  # otherwise take the color that is most intense
-        max_index = numpy.argmax(rgb)
+        max_index = numpy.argmax(rgb_vector)
         result = colors[max_index]
 
     return result
 
 
 # determine a score for the color reading
-def get_score(rgb):
+def get_score(rgb_vector):
     global score
     colors = ["red", "green", "blue"]
     scores = {"red": -0.5, "green": 0, "blue": 0.5, "table": 1}
 
-    color = get_color(rgb)
+    color = get_color(rgb_vector)
     if (color == "table"):
         global last_valid_score
         if (last_valid_score > 0):
@@ -74,7 +74,7 @@ def get_score(rgb):
     else:
         score = 0
         for i in range(3):
-            score += scores[colors[i]] * rgb[i]
+            score += scores[colors[i]] * rgb_vector[i]
 
     return score
 
@@ -158,6 +158,10 @@ def play_sound():
     print("playing sound")
 
 def startup():
+    explorerhat.light.blue.off()
+    explorerhat.light.yellow.off()
+    explorerhat.light.red.off()
+    explorerhat.light.green.off()
     pygame.mixer.init()
     pygame.mixer.music.load("/home/pi/Documents/LED_project/ps1.mp3")
     pygame.mixer.music.play()
@@ -212,13 +216,13 @@ def main():
         reading = TCS34725(i2c)
 
         # normalize the color reading
-        normalized_rgb = normalize(reading.color_rgb_bytes)
+        normalized_rgb_vector = normalize(reading.color_rgb_vector_bytes)
 
         # determine the actual color (unused for now)
-        color = get_color(normalized_rgb)
+        color = get_color(normalized_rgb_vector)
 
         # determine the input to the pid controller
-        score = get_score(normalized_rgb)
+        score = get_score(normalized_rgb_vector)
         if (score != 0 and score != -1 and score != 1):
             global last_valid_score
             last_valid_score = score
@@ -236,7 +240,7 @@ def main():
         # notify
         print(f"{left} , {right}")
 
-        #    print(f"{normalized_rgb} ({color}) -> {score}")
+        #    print(f"{normalized_rgb_vector} ({color}) -> {score}")
 
         # we don't want to sleep for very long because we want the pid controller to have as much data as possible
         time.sleep(0.01)
