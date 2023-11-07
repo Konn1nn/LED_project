@@ -114,27 +114,27 @@ def play_sound(sound_type="maggisounds"):
 
 def startup_sequence():
     """Perform the startup sequence with lights and sound."""
-    explorerhat.light.blue.off()
-    explorerhat.light.yellow.off()
-    explorerhat.light.red.off()
-    explorerhat.light.green.off()
+    light.blue.off()
+    light.yellow.off()
+    light.red.off()
+    light.green.off()
     play_sound("startup")
-    explorerhat.light.blue.fade(0,100,2)
+    light.blue.fade(0,100,2)
     time.sleep(2)
-    explorerhat.light.yellow.fade(0, 100, 2)
+    light.yellow.fade(0, 100, 2)
     time.sleep(2)
-    explorerhat.light.red.fade(0, 100, 2)
+    light.red.fade(0, 100, 2)
     time.sleep(2)
-    explorerhat.light.green.fade(0, 100, 2)
+    light.green.fade(0, 100, 2)
     time.sleep(2)
-    explorerhat.output.one.blink(0.2,0.2)
+    output.one.blink(0.2,0.2)
     time.sleep(2)
-    explorerhat.output.one.off()
+    output.one.off()
 
 def shutdown_sequence():
     """Perform the shutdown sequence with lights and sound."""
     play_sound("shutdown")
-    xplorerhat.output.one.blink(0.1, 0.1)
+    output.one.blink(0.1, 0.1)
     time.sleep(2)
 
 # Main Functionality
