@@ -166,7 +166,8 @@ def main():
         right_throttle = BASE_THROTTLE - OFFSET - control_effort
         set_throttles(left_throttle, right_throttle)
 
-        print(f"Throttles set to: Left={left_throttle}, Right={right_throttle}")
+        #print(f"Throttles set to: Left={left_throttle}, Right={right_throttle}")
+        print(f"{normalized_rgb_vector} ({color}) -> {score}")
 
         # Check for obstacles using the distance sensor
         distance = distance_sensor.distance()
