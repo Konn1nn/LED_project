@@ -130,7 +130,7 @@ def main():
     print("Hello, world!")
     startup_sequence()
     
-    # PID controller setup
+   # PID controller setup
     pid_controller = PID(20, 4, 2.5, setpoint=0)
     
     # Motor startup
@@ -167,10 +167,11 @@ def main():
         set_throttles(left_throttle, right_throttle)
 
         #print(f"Throttles set to: Left={left_throttle}, Right={right_throttle}")
-        print(f"{normalized_rgb} ({color_sensor.color_rgb_bytes}) -> {score}")
+        #print(f"{normalized_rgb} ({color_sensor.color_rgb_bytes}) -> {score}")
 
         # Check for obstacles using the distance sensor
         distance = distance_sensor.distance()
+        #print(distance)
         while distance < MIN_DISTANCE:
             output.one.blink(0.1, 0.1)
             set_throttles(0, 0)
