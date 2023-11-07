@@ -142,6 +142,8 @@ def main():
     time_since_last_sound = 0
     keep_running = True
 
+    distance_sensor = DistanceSensor()
+
     while keep_running:
         if touch.two.is_pressed():
             keep_running = False
