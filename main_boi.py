@@ -2,7 +2,7 @@ import time
 import explorerhat
 
 
-import joshuas_code
+import joshuas_code_refactored as joshuas_code
 
 
 
