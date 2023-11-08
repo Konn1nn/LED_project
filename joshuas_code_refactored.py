@@ -171,7 +171,7 @@ def main():
 
         # Get a color reading
         color_reading = color_sensor.color_rgb_bytes
-        blue_bias_reading = (color_reading[0], color_reading[1], color_reading[2] *4)
+        blue_bias_reading = (color_reading[0], color_reading[1], color_reading[2] *5)
         normalized_rgb = normalize(blue_bias_reading)
         score = get_score(normalized_rgb, last_valid_score)
         
