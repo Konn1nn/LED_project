@@ -148,7 +148,7 @@ def main():
    # PID controller setup
     pid_controller = PID(20, 4, 2.5, setpoint=0)
     pid_controller.sample_time = 0.01
-    pid.controller.output_limits = (-40, 40)
+    pid_controller.output_limits = (-40, 40)
     
     # Motor startup
     punch_throttles(33, 31)
