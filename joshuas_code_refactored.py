@@ -53,6 +53,7 @@ def get_color(rgb):
 def get_score(rgb, last_valid_score):
     """Calculate the score for the color reading."""
     color = get_color(rgb)
+    print(color)
     score = COLOR_SCORES[color]
     if color == "table":
         score = 1 #if last_valid_score > 0 else -1
