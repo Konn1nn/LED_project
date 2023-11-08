@@ -156,6 +156,7 @@ def main():
     last_valid_score = 0
     time_since_last_sound = 0
     keep_running = True
+    color_sensor = TCS34725(i2c)
 
     distance_sensor = DistanceSensor()
 
@@ -167,8 +168,9 @@ def main():
             break
 
         # Get a color reading
-        color_sensor = TCS34725(i2c)
-        normalized_rgb = normalize(color_sensor.color_rgb_bytes)
+        color_reading = color_sensor.color_rgb_bytes
+        blue_bias_reading = (color_reading[0], color_reading[1], color_reading[2] *2)
+        normalized_rgb = normalize(blue_bias_reading)
         score = get_score(normalized_rgb, last_valid_score)
         
         # Update last valid score if it's not a 'table' color
