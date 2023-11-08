@@ -176,6 +176,7 @@ def main():
         # Update last valid score if it's not a 'table' color
         if score not in (-1, 0, 1):
             last_valid_score = score
+            print(f"Last valid score: {last_valid_score}")
 
         # PID control
         control_effort = pid_controller(score)
@@ -183,7 +184,7 @@ def main():
         right_throttle = BASE_THROTTLE - OFFSET - control_effort
         set_throttles(left_throttle, right_throttle)
 
-        print(f"Throttles set to: Left={left_throttle}, Right={right_throttle}")
+        print(f"Throttles set to: Left={left_throttle}, Right={right_throttle} ")
         #print(f"{normalized_rgb} ({color_sensor.color_rgb_bytes}) -> {score}")
 
         # Check for obstacles using the distance sensor
