@@ -55,7 +55,7 @@ def get_score(rgb, last_valid_score):
     color = get_color(rgb)
     score = COLOR_SCORES[color]
     if color == "table":
-        score = 1 if last_valid_score > 0 else -1
+        score = 1 #if last_valid_score > 0 else -1
     else:
         score = sum(COLOR_SCORES[COLOR_NAMES[i]] * rgb[i] for i in range(3))
     return score
