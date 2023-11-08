@@ -216,7 +216,7 @@ def main():
         reading = TCS34725(i2c)
 
         # normalize the color reading
-        normalized_rgb_vector = normalize(reading.color_rgb_vector_bytes)
+        normalized_rgb_vector = normalize(reading.color_rgb_bytes)
 
         # determine the actual color (unused for now)
         color = get_color(normalized_rgb_vector)
