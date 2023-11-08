@@ -110,7 +110,7 @@ def play_sound(sound_type="maggisounds"):
         return  # No sounds to play for the given type
     sound_file = SOUND_FILES_DIR + random.choice(sounds)
     pygame.mixer.music.load(sound_file)
-    #pygame.mixer.music.play()
+    pygame.mixer.music.play()
     print(f"Playing sound: {sound_file}")
 
 def startup_sequence():
